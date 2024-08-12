@@ -209,7 +209,6 @@ a {
 
 .panel {
     padding: 2px 0 20px 5px;
-    display: none;
     background-color: #141318;
     overflow: hidden;
     position: relative;
@@ -223,7 +222,6 @@ a {
     padding-top: 20px;
     padding-left: 5px;
     padding-right: 5px;
-    cursor: pointer;
     text-align: left;
     display: flex;
     align-items: center;

@@ -37,28 +37,28 @@ $(function () {
     }
 
     // Accordion
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            var panel = this.nextElementSibling;
-            var arrow = this.querySelector(".down-arrow");
+    // var acc = document.getElementsByClassName("accordion");
+    // var i;
+    // for (i = 0; i < acc.length; i++) {
+    //     acc[i].addEventListener("click", function () {
+    //         var panel = this.nextElementSibling;
+    //         var arrow = this.querySelector(".down-arrow");
 
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-                this.classList.add("btn-padding");
-                if (arrow) {
-                    arrow.style.display = "block";
-                }
-            } else {
-                panel.style.display = "block";
-                this.classList.remove("btn-padding");
-                if (arrow) {
-                    arrow.style.display = "none";
-                }
-            }
-        });
-    }
+    //         if (panel.style.display === "block") {
+    //             panel.style.display = "none";
+    //             this.classList.add("btn-padding");
+    //             if (arrow) {
+    //                 arrow.style.display = "block";
+    //             }
+    //         } else {
+    //             panel.style.display = "block";
+    //             this.classList.remove("btn-padding");
+    //             if (arrow) {
+    //                 arrow.style.display = "none";
+    //             }
+    //         }
+    //     });
+    // }
 });
 
 function truncateText() {
