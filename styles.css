@@ -339,7 +339,6 @@ a {
     display: flex;
     flex-direction: row;
     gap: 12px;
-    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -389,7 +388,7 @@ a[href^="https://maps.google.com/maps"] {
     justify-content: center;
     align-items: center;
     gap: 4px;
-    width: 22%;
+    width: 77px;
 }
 
 .attendees-card h3 {
@@ -466,6 +465,7 @@ a[href^="https://maps.google.com/maps"] {
     font-weight: 400;
     color: #fff;
     line-height: 19px;
+    margin-bottom: 2px;
 }
 
 .host-reviews p {
@@ -620,4 +620,8 @@ a[href^="https://maps.google.com/maps"] {
     height: 320px;
     object-fit: cover;
     border-radius: 8px;
+}
+
+#googleMap div {
+    border-radius: 12px;
 }

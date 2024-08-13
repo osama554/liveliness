@@ -166,12 +166,10 @@ $(document).ready(function () {
                 imageContainer.append(carouselContainer);
 
                 $("#main-carousel").owlCarousel({
-                    items: 1.2,
-                    loop: true,
+                    items: 1,
+                    loop: false,
                     nav: false,
                     dots: false,
-                    autoplay: true,
-                    smartSpeed: 500,
                     margin: 10
                 });
             } else {
