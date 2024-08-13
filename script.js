@@ -1,15 +1,5 @@
-$(function () {
+$(document).ready(function () {
     // Carousel
-    $("#main-carousel").owlCarousel({
-        margin: 10,
-        dots: false,
-        loop: false,
-        responsive: {
-            0: {
-                items: 1.1
-            }
-        }
-    });
 
     $("#reviews-carousel").owlCarousel({
         margin: 10,
@@ -119,7 +109,7 @@ $.ajax(settings).done(function (response) {
     // Update DOM elements
     document.getElementById("event-title").textContent = eventData.data.title;
     document.getElementById("event-review").textContent = eventData.data.creator.reviewCount;
-    document.getElementById("event-review-count").textContent = eventData.data.creator.reviewCount;
+    // document.getElementById("event-review-count").textContent = eventData.data.creator.reviewCount;
     document.getElementById("event-start-time").textContent = formattedDate;
     document.getElementById("event-location").textContent = eventData.data.trainingLocationString;
     document.getElementById("event-location-map").textContent = eventData.data.trainingLocationString;
@@ -130,7 +120,36 @@ $.ajax(settings).done(function (response) {
     const imageUrl = eventData.data.creator.mainProfilePhoto;
     document.getElementById("event-host-image").src = imageUrl;
     const imageUrlCover = eventData.data.coverPhotoUrl;
-    document.getElementById("cover-image").src = imageUrlCover;
+    const optionalPhotos = eventData.data.optionalPhotos;
+    // document.getElementById("cover-image").src = imageUrlCover;
+    const imageContainer = document.getElementById('image-container');
+    const carouselContainer = document.getElementById('main-carousel');
+    imageContainer.innerHTML = '';
+
+    const imagesHtml = [];
+    imagesHtml.push(`<div class="item"><img src="${imageUrlCover}" alt="Cover Photo"></div>`);
+
+    if (optionalPhotos && optionalPhotos.length > 0) {
+        optionalPhotos.forEach(photoUrl => {
+            imagesHtml.push(`<div class="item"><img src="${photoUrl}" alt="Optional Photo"></div>`);
+        });
+
+        carouselContainer.innerHTML = imagesHtml.join('');
+        imageContainer.append(carouselContainer)
+
+        $("#main-carousel").owlCarousel({
+            items: 1.2,
+            loop: true,
+            nav: false,
+            dots: false,
+            autoplay: true,
+            smartSpeed: 500,
+            margin: 10
+        });
+    } else {
+        imageContainer.innerHTML = `<img src="${imageUrlCover}" alt="Cover Photo" class="cover_image">`;
+    }
+
     const container = document.getElementById("event-payment");
     container.innerHTML = "";
     eventData.data.paymentMethods.forEach(payment => {
