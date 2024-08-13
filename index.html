@@ -25,10 +25,14 @@
             <button>Get App</button>
         </div>
     </div>
+    <div id="error-container" style="display: none;">
+        <h1>Error</h1>
+        <p>No eventId found in the URL. Please provide a valid eventId to access the content.</p>
+    </div>
     <div id="loader" style="display: none;">
         <div class="spinner"></div>
     </div>
-    <section class="event-info hidden">
+    <section class="event-info hidden" id="main-content">
         <div id="image-container">
             <div class="owl-carousel owl-theme" id="main-carousel"></div>
         </div>

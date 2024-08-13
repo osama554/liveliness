@@ -103,6 +103,12 @@ $(document).ready(function () {
     const urlParams = new URLSearchParams(queryString);
     const product = urlParams.get("eventId");
 
+    if (!product) {
+        document.getElementById('main-content').style.display = 'none';
+        document.getElementById('error-container').style.display = 'flex';
+        return;
+    }
+
     showLoader();
 
     const eventUrl = `https://prod-ts-liveliness-server.onrender.com/api/event/${product}`;
