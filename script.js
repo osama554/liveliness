@@ -26,6 +26,7 @@ $(document).ready(function () {
     function updateReviewCount(count) {
         const reviewText = count === 1 ? 'review' : 'reviews';
         document.getElementById('total-reviews').textContent = `${count} ${reviewText}`;
+        document.getElementById('event-review-count').textContent = `${count} ${reviewText}`;
     }
 
     function updateAttendeesCount(current, total) {
@@ -137,6 +138,7 @@ $(document).ready(function () {
             // Update DOM elements
             document.getElementById("event-title").textContent = eventData.data.title;
             document.getElementById("event-review").textContent = eventData.data.creator.reviewCount;
+            document.getElementById("rating").textContent = eventData.data.creator.reviewCount;
             document.getElementById("event-start-time").textContent = formattedDate;
             document.getElementById("event-location").textContent = eventData.data.trainingLocationString;
             document.getElementById("event-location-map").textContent = eventData.data.trainingLocationString;
