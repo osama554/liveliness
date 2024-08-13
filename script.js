@@ -385,6 +385,6 @@ $(document).ready(function () {
         })
         .catch(error => {
             hideLoader();
-            console.error('Error fetching data:', error);
+            // console.error('Error fetching data:', error);
         });
 });

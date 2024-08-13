@@ -440,6 +440,7 @@ a[href^="https://maps.google.com/maps"] {
     font-weight: 400;
     color: #fff;
     padding-bottom: 6px;
+    line-height: 18px;
 }
 
 .reviews-container #reviews-carousel .reviews-show-more {
@@ -455,13 +456,16 @@ a[href^="https://maps.google.com/maps"] {
 }
 
 .host-reviews {
-    gap: 2px;
+    gap: 2x;
+    display: flex;
+    flex-direction: column;
 }
 
 .host-reviews h2 {
     font-size: 14px;
     font-weight: 400;
     color: #fff;
+    line-height: 19px;
 }
 
 .host-reviews p {
