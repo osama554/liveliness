@@ -70,11 +70,21 @@ function truncateText() {
     textElement.appendChild(showMoreButton);
 };
 
+function showLoader() {
+    document.getElementById('loader').style.display = 'flex';
+}
+
+function hideLoader() {
+    document.getElementById('loader').style.display = 'none';
+}
+
 let eventData;
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const product = urlParams.get("eventId");
+
+showLoader();
 
 var settings = {
     "url": `https://prod-ts-liveliness-server.onrender.com/api/event/${product}`,
@@ -87,6 +97,7 @@ var settings = {
 };
 
 $.ajax(settings).done(function (response) {
+    hideLoader();
     // Ensure eventData is updated with the API response
     eventData = response;
 
@@ -165,6 +176,7 @@ $.ajax(settings).done(function (response) {
         var mapProp = {
             center: new google.maps.LatLng(eventData.data.trainingLocation.coordinates[0], eventData.data.trainingLocation.coordinates[1]),
             zoom: 5,
+            disableDefaultUI: true,
             styles: [
                 { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
                 { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
@@ -269,4 +281,5 @@ $.ajax(settings).done(function (response) {
         });
 
     });
+    document.querySelectorAll('.hidden').forEach(el => el.classList.remove('hidden'));
 });
