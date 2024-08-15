@@ -563,6 +563,7 @@ a[href^="https://maps.google.com/maps"] {
 .payment-card {
     display: flex;
     gap: 8px;
+    align-items: center;
 }
 
 .payment-card h3 {
@@ -582,14 +583,14 @@ a[href^="https://maps.google.com/maps"] {
     font-size: 16px;
     font-weight: 400;
     color: #fff;
-    padding-bottom: 2px;
+    padding-bottom: 4px;
 }
 
 .cancel-container p {
     font-size: 12px;
     font-weight: 400;
     color: #C2C2C2;
-    line-height: 18px;
+    line-height: 19px;
 }
 
 .attend-container {

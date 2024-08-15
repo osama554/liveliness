@@ -142,6 +142,7 @@ $(document).ready(function () {
 
             const formattedDate = `${formattedDateParts.weekday}, ${formattedDateParts.month} ${formattedDateParts.day} at ${formattedDateParts.time}`;
 
+            console.log(eventData)
             // Update DOM elements
             document.getElementById("event-title").textContent = eventData.data.title;
             document.getElementById("event-review").textContent = eventData.data.creator.reviewCount;
@@ -151,7 +152,12 @@ $(document).ready(function () {
             document.getElementById("event-location-map").textContent = eventData.data.trainingLocationString;
             document.getElementById("event-creator-name").textContent = eventData.data.creator.name;
             document.getElementById("event-description").textContent = eventData.data.description;
-            document.getElementById("event-price").textContent = `${eventData.data.priceCurrency} ${eventData.data.price}`;
+            const priceElement = document.getElementById("event-price");
+            if (eventData.data.price === 0) {
+                priceElement.textContent = "Free";
+            } else {
+                priceElement.textContent = `${eventData.data.priceCurrency} ${eventData.data.price}`;
+            }
             document.getElementById("events-remaining-seats").textContent = `${eventData.data.participantsLimit - eventData.data.participants.length} spots left`;
             const imageUrl = eventData.data.creator.mainProfilePhoto;
             document.getElementById("event-host-image").src = imageUrl;
@@ -185,46 +191,52 @@ $(document).ready(function () {
 
             const container = document.getElementById("event-payment");
             container.innerHTML = "";
-            eventData.data.paymentMethods.forEach(payment => {
+
+            const paymentImageMap = {
+                credit_card: "./images/credit-card.svg",
+                paypal: "./images/paypal.svg",
+                cash: "./images/cash.svg",
+                free: "./images/cash.svg"
+            };
+
+            const paymentTextMap = {
+                credit_card: "Credit Card",
+                paypal: "Paypal",
+                cash: "Cash",
+                free: "Free"
+            };
+
+            if (eventData.data.paymentMethods.length === 0) {
                 const eventElement = document.createElement("div");
                 eventElement.classList.add("payment-card");
-                let imageUrl;
-                switch (payment) {
-                    case "credit_card":
-                        imageUrl = "./images/credit-card.svg";
-                        break;
-                    case "paypal":
-                        imageUrl = "./images/paypal.svg";
-                        break;
-                    case "cash":
-                        imageUrl = "./images/cash.svg";
-                        break;
-                }
 
-                let paymentText;
-                switch (payment) {
-                    case "credit_card":
-                        paymentText = "Credit Card";
-                        break;
-                    case "paypal":
-                        paymentText = "Paypal";
-                        break;
-                    case "cash":
-                        paymentText = "Cash";
-                        break;
-                }
+                const imageUrl = paymentImageMap.free;
+                const paymentText = paymentTextMap.free;
 
-                eventElement.innerHTML = `
-                    <img 
-                        src="${imageUrl}"
-                        alt="${payment}"
-                    />
-                    <h3>${paymentText}</h3>
-                `;
+                eventElement.innerHTML = `<img src="${imageUrl}"
+                                                alt="free"
+                                            />
+                                            <h3>${paymentText}</h3>
+                                        `;
 
-                // Append the generated HTML to the container
                 container.appendChild(eventElement);
-            });
+            } else {
+                eventData.data.paymentMethods.forEach(payment => {
+                    const eventElement = document.createElement("div");
+                    eventElement.classList.add("payment-card");
+
+                    const imageUrl = paymentImageMap[payment];
+                    const paymentText = paymentTextMap[payment];
+
+                    eventElement.innerHTML = `<img src="${imageUrl}"
+                                                    alt="${payment}"
+                                                />
+                                                <h3>${paymentText}</h3>
+                                            `;
+
+                    container.appendChild(eventElement);
+                });
+            }
 
             var mapProp = {
                 center: new google.maps.LatLng(eventData.data.trainingLocation.coordinates[0], eventData.data.trainingLocation.coordinates[1]),
