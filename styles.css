@@ -491,14 +491,14 @@ a[href^="https://maps.google.com/maps"] {
     border: 1px solid #2F2D36;
     border-radius: 12px;
     padding: 16px;
-    max-height: 122px;
+    max-height: 132px;
     justify-content: center;
     display: flex;
     flex-direction: column;
 }
 
 #reviews-carousel.swiper-wrapper {
-    max-height: 158px;
+    max-height: 168px;
 }
 
 .reviews-container .all-reviews {
