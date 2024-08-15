@@ -635,6 +635,7 @@ a[href^="https://maps.google.com/maps"] {
     bottom: 0;
     width: calc(100% - 30px);
     max-width: 738px;
+    z-index: 99;
 }
 
 .cover_image {
