@@ -121,19 +121,26 @@ $(document).ready(function () {
 
             // Handle event data
             const eventData = eventResponse;
+            // console.log(eventData)
             const date = new Date(eventData.data.trainingStartDateTime);
 
-            const options = {
-                weekday: "long",
-                month: "long",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: false, // Use 24-hour format
+            // const options = {
+            //     weekday: "long",
+            //     month: "long",
+            //     day: "numeric",
+            //     hour: "2-digit",
+            //     minute: "2-digit",
+            //     hour12: false, // Use 24-hour format
+            // };
+
+            const formattedDateParts = {
+                weekday: date.toLocaleString("en-US", { weekday: "long" }),
+                month: date.toLocaleString("en-US", { month: "long" }),
+                day: date.toLocaleString("en-US", { day: "numeric" }),
+                time: date.toLocaleString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false })
             };
 
-            const formattedDate = date.toLocaleString("en-US", options)
-                .replace(",", " at"); // Replace comma after the day with " at"
+            const formattedDate = `${formattedDateParts.weekday}, ${formattedDateParts.month} ${formattedDateParts.day} at ${formattedDateParts.time}`;
 
             // Update DOM elements
             document.getElementById("event-title").textContent = eventData.data.title;
@@ -330,7 +337,8 @@ $(document).ready(function () {
             const attendees = reviewsAttendeesResponse.data.participants;
             const attendeeContainer = document.getElementById('attendees-container');
             attendeeContainer.innerHTML = '';
-            attendees.forEach(attendee => {
+            const limitedAttendees = attendees.slice(0, 8);
+            limitedAttendees.forEach(attendee => {
                 const attendeeCardHtml = `
                         <div class="attendees-card">
                             <div class="attendees-circle">
@@ -346,6 +354,18 @@ $(document).ready(function () {
             const totalAttendees = eventData.data.participantsLimit;
             updateAttendeesCount(currentAttendees, totalAttendees);
 
+            function adjustLastSlideWidth() {
+                const slides = document.querySelectorAll('.swiper-slide');
+                if (slides.length > 0) {
+                    // Remove width adjustment from all slides
+                    slides.forEach(slide => {
+                        slide.style.width = '70%';
+                    });
+
+                    // Set the last slide to full width
+                    slides[slides.length - 1].style.width = '90%';
+                }
+            }
             // Handle Reviews
             const reviews = reviewsAttendeesResponse.data.reviews;
             const reviewsContainer = document.getElementById('reviews-carousel');
@@ -353,7 +373,7 @@ $(document).ready(function () {
             reviews.forEach(review => {
                 const reviewDate = formatRelativeTime(review.createdAt);
                 const reviewCardHtml = `
-                    <div class="item">
+                    <div class="swiper-slide">
                         <p>${review.review}</p>
                         <div class="host-reviews-info">
                             <div class="host-circle">
@@ -370,12 +390,19 @@ $(document).ready(function () {
 
             updateReviewCount(reviews.length);
 
-            $("#reviews-carousel").owlCarousel({
-                items: 1.3,
-                loop: false,
-                nav: false,
-                dots: false,
-                margin: 10
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 'auto',
+                spaceBetween: 10,
+                on: {
+                    // On initialization complete, adjust the width of the last slide
+                    init: function () {
+                        adjustLastSlideWidth();
+                    },
+                    // On slide change, ensure the last slide is adjusted (in case slides are dynamically added or removed)
+                    slideChange: function () {
+                        adjustLastSlideWidth();
+                    }
+                }
             });
 
             // Remove 'hidden' class from elements
