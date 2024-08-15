@@ -228,7 +228,7 @@ $(document).ready(function () {
 
             var mapProp = {
                 center: new google.maps.LatLng(eventData.data.trainingLocation.coordinates[0], eventData.data.trainingLocation.coordinates[1]),
-                zoom: 5,
+                zoom: 6,
                 disableDefaultUI: true,
                 styles: [{
                     "featureType": "all",
@@ -236,7 +236,7 @@ $(document).ready(function () {
                     "stylers": [{
                         "saturation": 36
                     }, {
-                        "color": "#000000"
+                        "color": "#484848"
                     }, {
                         "lightness": 30
                     }]
@@ -374,7 +374,7 @@ $(document).ready(function () {
                     "featureType": "road.highway",
                     "elementType": "geometry.fill",
                     "stylers": [{
-                        "color": "#000000"
+                        "color": "#383838"
                     }, {
                         "lightness": 7
                     }]
@@ -382,7 +382,7 @@ $(document).ready(function () {
                     "featureType": "road.highway",
                     "elementType": "geometry.stroke",
                     "stylers": [{
-                        "color": "#000000"
+                        "color": "#383838"
                     }, {
                         "lightness": 9
                     }, {
@@ -392,7 +392,7 @@ $(document).ready(function () {
                     "featureType": "road.arterial",
                     "elementType": "geometry",
                     "stylers": [{
-                        "color": "#000000"
+                        "color": "#383838"
                     }, {
                         "lightness": 8
                     }]
@@ -400,7 +400,7 @@ $(document).ready(function () {
                     "featureType": "road.local",
                     "elementType": "geometry",
                     "stylers": [{
-                        "color": "#000000"
+                        "color": "#383838"
                     }, {
                         "lightness": 6
                     }]
