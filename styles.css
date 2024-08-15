@@ -159,7 +159,7 @@ a {
 
 .event-date h3 {
     color: #fff;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 600;
     margin: 0;
 }
@@ -453,6 +453,7 @@ a[href^="https://maps.google.com/maps"] {
     -webkit-line-clamp: 3;
     line-clamp: 3;
     -webkit-box-orient: vertical;
+    flex-grow: 1;
 }
 
 .reviews-container #reviews-carousel .reviews-show-more {
@@ -464,7 +465,7 @@ a[href^="https://maps.google.com/maps"] {
 .host-reviews-info {
     display: flex;
     gap: 8px;
-    padding: 16px 0;
+    padding: 16px 0 0 0;
 }
 
 .host-reviews {
@@ -491,14 +492,14 @@ a[href^="https://maps.google.com/maps"] {
     border: 1px solid #2F2D36;
     border-radius: 12px;
     padding: 16px;
-    max-height: 132px;
+    height: 145px;
     justify-content: center;
     display: flex;
     flex-direction: column;
 }
 
 #reviews-carousel.swiper-wrapper {
-    max-height: 168px;
+    height: auto;
 }
 
 .reviews-container .all-reviews {
