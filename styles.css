@@ -1,6 +1,6 @@
 body {
     max-width: 767px;
-    background-color: #141318;
+    background-color: #000000;
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -41,7 +41,7 @@ a {
 .blur-container {
     padding: 16px;
     position: relative;
-    overflow: hidden;
+    overflow-y: visible;
 }
 
 .blur-container::before {
@@ -50,7 +50,7 @@ a {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: -70px;
     background-size: cover;
     background-position: center;
     filter: blur(20px);
@@ -108,6 +108,7 @@ div.content.shimmer-effect {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #43404F;
+    background-color: #26242E;
 }
 
 .sticky {
@@ -283,7 +284,6 @@ div.content.shimmer-effect {
 }
 
 .event-accordion {
-    background-color: #141318;
     color: #fff;
     border: none;
     outline: none;
@@ -292,7 +292,6 @@ div.content.shimmer-effect {
 
 .panel {
     padding: 2px 0 20px 5px;
-    background-color: #141318;
     overflow: hidden;
     position: relative;
 }
@@ -534,13 +533,13 @@ a[href^="https://maps.google.com/maps"] {
 }
 
 #reviews-carousel .swiper-slide {
-    border: 1px solid #2F2D36;
     border-radius: 12px;
     padding: 16px;
     height: 145px;
     justify-content: center;
     display: flex;
     flex-direction: column;
+    background-color: #1F1E24;
 }
 
 #reviews-carousel.swiper-wrapper {
@@ -639,11 +638,10 @@ a[href^="https://maps.google.com/maps"] {
 }
 
 .attend-container {
-    padding: 12px 0;
+    padding: 12px 16px;
     display: flex;
     align-items: center;
-    background: #141318;
-    padding-left: 15px;
+    background: #26242E;
     border-top: 1px solid #2F2D36;
 }
 
@@ -679,7 +677,7 @@ a[href^="https://maps.google.com/maps"] {
 .attend-sticky {
     position: fixed;
     bottom: 0;
-    width: calc(100% - 30px);
+    width: 100%;
     max-width: 738px;
     z-index: 99;
 }
