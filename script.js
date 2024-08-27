@@ -482,6 +482,13 @@ $(document).ready(function () {
             const attendeeContainer = document.getElementById('attendees-container');
             attendeeContainer.innerHTML = '';
             const limitedAttendees = attendees.slice(0, 8);
+
+            if (limitedAttendees.length < 4) {
+                attendeeContainer.classList.add('align-left');
+            } else {
+                attendeeContainer.classList.remove('align-left');
+            }
+
             limitedAttendees.forEach(attendee => {
                 const attendeeCardHtml = `
                         <div class="attendees-card">

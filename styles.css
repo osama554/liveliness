@@ -384,10 +384,13 @@ div.content.shimmer-effect {
     display: flex;
     flex-direction: row;
     gap: 12px;
-    align-items: center;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.attendees-content.align-left {
+    justify-content: flex-start;
 }
 
 a[href^="http://maps.google.com/maps"] {
