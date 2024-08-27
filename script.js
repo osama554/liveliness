@@ -183,8 +183,8 @@ $(document).ready(function () {
             const imageContainer = document.getElementById('image-container');
             const carouselContainer = document.getElementById('main-carousel');
 
-            const blurContainer = document.querySelector('.blur-container');
-            blurContainer.style.setProperty('--blurred-background', `url(${imageUrlCover})`);
+            // const blurContainer = document.querySelector('.blur-container');
+            // blurContainer.style.setProperty('--blurred-background', `url(${imageUrlCover})`);
 
             imageContainer.innerHTML = '';
 

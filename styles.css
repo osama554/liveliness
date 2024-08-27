@@ -38,7 +38,7 @@ a {
     }
 }
 
-.blur-container {
+/* .blur-container {
     padding: 16px;
     position: relative;
     overflow-y: visible;
@@ -61,7 +61,7 @@ a {
 
 #image-container.content {
     z-index: 1;
-}
+} */
 
 #image-container.content.shimmer-effect {
     width: 100%;
@@ -148,7 +148,7 @@ div.content.shimmer-effect {
 }
 
 .event-info {
-    padding: 0 15px 10px 15px;
+    padding: 15px 10px;
 }
 
 /* #main-carousel .owl-stage-outer {
@@ -586,7 +586,7 @@ a[href^="https://maps.google.com/maps"] {
 }
 
 .payment-container {
-    padding: 16px 0;
+    padding: 16px 0 55px 0;
 }
 
 .payment-content {
