@@ -179,8 +179,13 @@ $(document).ready(function () {
             document.getElementById("event-host-image").src = imageUrl;
             const imageUrlCover = eventData.data.coverPhotoUrl;
             const optionalPhotos = eventData.data.optionalPhotos;
+
             const imageContainer = document.getElementById('image-container');
             const carouselContainer = document.getElementById('main-carousel');
+
+            const blurContainer = document.querySelector('.blur-container');
+            blurContainer.style.setProperty('--blurred-background', `url(${imageUrlCover})`);
+
             imageContainer.innerHTML = '';
 
             const imagesHtml = [];
