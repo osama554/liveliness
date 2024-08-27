@@ -55,7 +55,7 @@ a {
     background-position: center;
     filter: blur(20px);
     z-index: -1;
-    opacity: 0.5;
+    opacity: 0.6;
     background-image: var(--blurred-background);
 }
 
@@ -103,7 +103,7 @@ div.content.shimmer-effect {
 }
 
 .header {
-    padding: 25px 20px;
+    padding: 16px 20px 24px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -128,8 +128,8 @@ div.content.shimmer-effect {
 .header button {
     font-size: 16px;
     font-style: 600;
-    border: 1px solid #2F2D36;
-    background-color: #141318;
+    border: 1px solid #43404F;
+    background-color: transparent;
     color: #fff;
     width: 87px;
     height: 40px;
