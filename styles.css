@@ -21,40 +21,56 @@ a {
     text-decoration: none;
 }
 
-.hidden {
-    display: none;
+.shimmer-effect {
+    background: linear-gradient(90deg, #cecece 25%, #e0e0e0 50%, #cecece 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
 }
 
-#loader {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-}
-
-.spinner {
-    border: 10px solid #f3f3f3;
-    border-top: 10px solid #3498db;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
+@keyframes shimmer {
     0% {
-        transform: rotate(0deg);
+        background-position: -200% 0;
     }
 
     100% {
-        transform: rotate(360deg);
+        background-position: 200% 0;
     }
+}
+
+#image-container.content.shimmer-effect {
+    width: 100%;
+    height: 320px;
+}
+
+#total-attendees.content.shimmer-effect {
+    width: 20%;
+    margin: 0;
+}
+
+#reviews-carousel .swiper-slide.content.shimmer-effect {
+    width: 90%;
+}
+
+.attend-info.content.shimmer-effect {
+    height: 20px;
+    width: 20%;
+}
+
+h2.shimmer-effect,
+h3.shimmer-effect,
+p.shimmer-effect,
+span.shimmer-effect {
+    width: 100%;
+    height: 20px;
+    display: inline-block;
+}
+
+h2.content.shimmer-effect,
+h3.content.shimmer-effect,
+p.content.shimmer-effect,
+div.content.shimmer-effect {
+    margin-bottom: 10px;
 }
 
 .header {

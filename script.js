@@ -80,12 +80,29 @@ $(document).ready(function () {
         textElement.appendChild(showMoreButton);
     };
 
-    function showLoader() {
-        document.getElementById('loader').style.display = 'flex';
+    function showShimmer() {
+        document.querySelectorAll('h1.content, h2.content, h3.content, img.content, p.content, div.content').forEach(element => {
+            element.classList.add('shimmer-effect');
+            if (element.tagName === 'DIV' && element.classList.contains('content')) {
+                element.style.position = 'relative';
+                element.querySelectorAll('*').forEach(child => {
+                    child.style.visibility = 'hidden'; // Hide the child elements
+                });
+            }
+        });
+        document.getElementById('attend-btn').style.display = 'none';
     }
 
-    function hideLoader() {
-        document.getElementById('loader').style.display = 'none';
+    function hideShimmer() {
+        document.querySelectorAll('h1.content, h2.content, h3.content, img.content, p.content, div.content').forEach(element => {
+            element.classList.remove('shimmer-effect');
+            if (element.tagName === 'DIV' && element.classList.contains('content')) {
+                element.querySelectorAll('*').forEach(child => {
+                    child.style.visibility = 'visible'; // Show the child elements
+                });
+            }
+        });
+        document.getElementById('attend-btn').style.display = 'block';
     }
 
     function makeApiRequest(url) {
@@ -110,14 +127,14 @@ $(document).ready(function () {
         return;
     }
 
-    showLoader();
+    showShimmer();
 
     const eventUrl = `https://prod-ts-liveliness-server.onrender.com/api/event/${product}`;
     const reviewsAttendeesUrl = `https://prod-ts-liveliness-server.onrender.com/api/event/getCompleteInfo/${product}`;
 
     Promise.all([makeApiRequest(eventUrl), makeApiRequest(reviewsAttendeesUrl)])
         .then(([eventResponse, reviewsAttendeesResponse]) => {
-            hideLoader();
+            hideShimmer();
 
             // Handle event data
             const eventData = eventResponse;
@@ -142,7 +159,6 @@ $(document).ready(function () {
 
             const formattedDate = `${formattedDateParts.weekday}, ${formattedDateParts.month} ${formattedDateParts.day} at ${formattedDateParts.time}`;
 
-            console.log(eventData)
             // Update DOM elements
             document.getElementById("event-title").textContent = eventData.data.title;
             document.getElementById("event-review").textContent = eventData.data.creator.reviewCount;
@@ -528,12 +544,9 @@ $(document).ready(function () {
                     }
                 }
             });
-
-            // Remove 'hidden' class from elements
-            document.querySelectorAll('.hidden').forEach(el => el.classList.remove('hidden'));
         })
         .catch(error => {
-            hideLoader();
+            hideShimmer();
             // console.error('Error fetching data:', error);
         });
 });
