@@ -43,6 +43,10 @@ a {
     height: 320px;
 }
 
+#event-payment .content {
+    height: 20px;
+}
+
 #total-attendees.content.shimmer-effect {
     width: 20%;
     margin: 0;
