@@ -690,7 +690,7 @@ a[href^="https://maps.google.com/maps"] {
     position: fixed;
     bottom: 0;
     width: 100%;
-    max-width: 738px;
+    max-width: 767px;
     z-index: 99;
 }
 
