@@ -148,7 +148,7 @@ div.content.shimmer-effect {
 }
 
 .event-info {
-    padding: 15px 10px;
+    padding: 16px;
 }
 
 /* #main-carousel .owl-stage-outer {
@@ -170,7 +170,7 @@ div.content.shimmer-effect {
 }
 
 .event-review span {
-    color: #00EA4B;
+    color: #DAFF00;
 }
 
 .event-review {
@@ -278,7 +278,7 @@ div.content.shimmer-effect {
 }
 
 .host-more-info a {
-    color: #00EA4B;
+    color: #DAFF00;
     font-size: 12px;
     font-weight: 400;
 }
@@ -461,6 +461,7 @@ a[href^="https://maps.google.com/maps"] {
     display: flex;
     flex-direction: row;
     gap: 6px;
+    align-items: center;
 }
 
 .reviews-title {
@@ -579,6 +580,14 @@ a[href^="https://maps.google.com/maps"] {
     color: #fff;
 }
 
+.reviews-header a {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    text-align: right;
+    flex-grow: 1;
+}
+
 .location-header h3 {
     font-size: 14px;
     font-weight: 400;
@@ -586,7 +595,7 @@ a[href^="https://maps.google.com/maps"] {
 }
 
 .payment-container {
-    padding: 16px 0 55px 0;
+    padding: 16px 0 85px 0;
 }
 
 .payment-content {
@@ -641,7 +650,7 @@ a[href^="https://maps.google.com/maps"] {
 }
 
 .attend-container {
-    padding: 12px 16px;
+    padding: 16px 16px 24px 16px;
     display: flex;
     align-items: center;
     background: #26242E;
