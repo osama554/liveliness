@@ -264,9 +264,9 @@ div.content.shimmer-effect {
 .host-info a {
     background-color: #fff;
     color: #141318;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
-    padding: 4px 12px;
+    padding: 8px 24px;
     border-radius: 64px;
 }
 
