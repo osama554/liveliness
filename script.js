@@ -160,6 +160,7 @@ $(document).ready(function () {
             const formattedDate = `${formattedDateParts.weekday}, ${formattedDateParts.month} ${formattedDateParts.day} at ${formattedDateParts.time}`;
 
             // Update DOM elements
+            document.getElementById("more-from-coach").href = `https://coachprofile.linmo.app/?userId=${eventData.data.creator.uid}`;
             document.getElementById("event-title").textContent = eventData.data.title;
             document.getElementById("event-review").textContent = eventData.data.creator.reviewCount;
             document.getElementById("rating").textContent = eventData.data.creator.reviewCount;
