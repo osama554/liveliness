@@ -33,18 +33,24 @@ $(document).ready(function () {
         document.getElementById('total-attendees').textContent = `${current} / ${total}`;
     }
 
-    // Sticky header
-    window.onscroll = function () { myFunction() };
+    window.onscroll = function () { hideOnScroll() };
 
     var header = document.getElementById("myHeader");
     var sticky = header.offsetTop;
+    var lastScrollY = window.scrollY;
 
-    function myFunction() {
-        if (window.scrollY > sticky) {
-            header.classList.add("sticky");
+    function hideOnScroll() {
+        var currentScrollY = window.scrollY;
+
+        if (currentScrollY > lastScrollY && currentScrollY > sticky) {
+            // Scroll Down
+            header.style.top = "-100px";
         } else {
-            header.classList.remove("sticky");
+            // Scroll Up
+            header.style.top = "0";
         }
+
+        lastScrollY = currentScrollY;
     }
 
     // Accordion
